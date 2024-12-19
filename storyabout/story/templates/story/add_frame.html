@@ -1,0 +1,54 @@
+{% extends 'story/layout.html' %}
+
+{% block content %}
+  <div class="back__layer">
+    <!-- Errors notifications -->
+    {% if form.errors %}
+      <div class="error-messages">
+        <ul>
+          {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+              <li>
+                <strong>{{ field|capfirst }}</strong>: {{ error }}
+              </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <!-- Add frame form -->
+    <div class="container__form d-flex justify-content-center align-items-center">
+      <div class="div__form">
+        <h2>Add a Frame to {{ story.title }}</h2>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="my-3 d-flex align-items-center">
+            <h3 class="my-0">Chapter</h3>
+            <div class="px-3">{{ form.chapter }}</div>
+          </div>
+          <div class="d-flex align-items-center">
+            <input class="form-check-input m-0" type="radio" id="paragraph" name="background" value="color" onclick="toggleFrameTypeVisibility(this)" />
+            <h4 class="mx-3 my-0" for="color">Paragraph</h4>
+            <input class="form-check-input m-0" type="radio" id="image" name="background" value="color" onclick="toggleFrameTypeVisibility(this)" />
+            <h4 class="mx-3 my-0" for="color">Image</h4>
+          </div>
+
+          <div id="frame__paragraph" class="d-none my-3">
+            <div class="d-flex">
+              <h1 class="vertical__title mx-4">Paragraph</h1>
+              {{ form.paragraph }}
+            </div>
+          </div>
+          <div id="frame__image" class="d-none my-3">
+            <h2 class="draft__title">Image</h2>
+            {{ form.image }}
+          </div>
+          <div class="my-3">{{ form.position }}</div>
+
+          <button type="submit" class="btn btn-outline-warning">Add Frame</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

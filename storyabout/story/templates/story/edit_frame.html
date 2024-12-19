@@ -1,0 +1,51 @@
+{% extends 'story/layout.html' %}
+
+{% block content %}
+  <div class="stories d-flex justify-content-center">
+    <!-- Errors notifications -->
+    {% if form.errors %}
+      <div class="error-messages">
+        <ul>
+          {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+              <li>
+                <strong>{{ field|capfirst }}</strong>: {{ error }}
+              </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    <!-- Edit frame form -->
+    <div class="w-50">
+      <div class="div__form">
+        <h2 class="text-center">Edit Frame for Story: {{ story.title }}</h2>
+        <form method="POST" enctype="multipart/form-data" class="p-4">
+          {% csrf_token %}
+
+          <!-- Chapter -->
+          <div class="form-group mb-3">
+            <label for="id_chapter">Chapter:</label>
+            {{ form.chapter }}
+          </div>
+          {% if form.paragraph.value %}
+            <div id="frame__paragraph" class="my-3">
+              <div class="d-flex">
+                <h1 class="vertical__title mx-4">Paragraph</h1>
+                {{ form.paragraph }}
+              </div>
+            </div>
+          {% else %}
+            <div id="frame__image" class="my-3">
+              <h2 class="draft__title">Image</h2>
+              <input type="file" name="{{ form.image.name }}" />
+            </div>
+          {% endif %}
+          <div class="my-3">{{ form.position }}</div>
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary">Save Frame</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

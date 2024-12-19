@@ -1,0 +1,40 @@
+{% extends 'story/layout.html' %}
+
+{% block content %}
+  <div class="back__layer">
+    <!-- Errors notifications -->
+    {% if form.errors %}
+      <div class="error-messages">
+        <ul>
+          {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+              <li>
+                <strong>{{ field|capfirst }}</strong>: {{ error }}
+              </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <!-- Login form -->
+    <div class="container__form d-flex justify-content-center align-items-center">
+      <div class="div__form">
+        <h2>Login</h2>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="my-3 d-flex align-items-center flex-column">
+            <h3 class="my-0">Username</h3>
+            <div class="px-3">{{ form.username }}</div>
+          </div>
+          <div class="my-3 d-flex align-items-center flex-column">
+            <h3 class="my-0">Password</h3>
+            <div class="px-3">{{ form.password }}</div>
+          </div>
+          <button type="submit" class="btn btn-outline-warning">Login</button>
+          <a type="submit" href="{% url 'registrationlogin:register' %}" class="btn btn-outline-danger text-danger">Register</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

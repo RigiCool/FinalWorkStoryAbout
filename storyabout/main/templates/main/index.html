@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'libs/swiper/swiper-bundle.min.css' %}" defer />
+    <script src="{% static 'libs/swiper/swiper-bundle.min.js' %}" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}" />
+    <script src="{% static 'main/js/app.js' %}" defer></script>
+  </head>
+  <body>
+    <!-- Slider -->
+    <div class="swiper slider">
+      <div class="swiper-wrapper slider__wrapper">
+		
+        <!-- Slider item -->
+        <div class="swiper-slide slider__item">
+          <div class="slider__layer" data-swiper-parallax="35%" style="background-image: url('{% static 'main/img/Pushkin/layer-back.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="25%" style="background-image: url('{% static 'main/img/Pushkin/layer-middle.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="14%" style="background-image: url('{% static 'main/img/Pushkin/layer-front.png' %}');"></div>
+          <div class="layer__header">
+            <a href="{% url 'story:stories' %}">
+              <h1 class="layers__title">WELCOME</h1>
+              <h2 class="layers__suptitle">Tvorcheskiy Ugolok</h2>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slider item -->
+        <div class="swiper-slide slider__item">
+          <div class="slider__layer" data-swiper-parallax="35%" style="background-image: url('{% static 'main/img/Kuprin/layer-back.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="25%" style="background-image: url('{% static 'main/img/Kuprin/layer-middle.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="14%" style="background-image: url('{% static 'main/img/Kuprin/layer-front.png' %}');"></div>
+          <div class="layer__header">
+            <a href="{% url 'story:stories' %}">
+              <h1 class="layers__title">WELCOME</h1>
+              <h2 class="layers__suptitle">Tvorcheskiy Ugolok</h2>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slider item -->
+        <div class="swiper-slide slider__item">
+          <div class="slider__layer" data-swiper-parallax="35%" style="background-image: url('{% static 'main/img/Tolstoy/layer-back.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="25%" style="background-image: url('{% static 'main/img/Tolstoy/layer-middle.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="14%" style="background-image: url('{% static 'main/img/Tolstoy/layer-front.png' %}');"></div>
+          <div class="layer__header">
+            <a href="{% url 'story:stories' %}">
+              <h1 class="layers__title">WELCOME</h1>
+              <h2 class="layers__suptitle">Tvorcheskiy Ugolok</h2>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slider item -->
+        <div class="swiper-slide slider__item">
+          <div class="slider__layer" data-swiper-parallax="35%" style="background-image: url('{% static 'main/img/Bulgakov/layer-back.jpg' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="25%" style="background-image: url('{% static 'main/img/Bulgakov/layer-margarita.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="20%" style="background-image: url('{% static 'main/img/Bulgakov/layer-master.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="14%" style="background-image: url('{% static 'main/img/Bulgakov/layer-front.png' %}');"></div>
+          <div class="layer__header">
+            <a href="{% url 'story:stories' %}">
+              <h1 class="layers__title">WELCOME</h1>
+              <h2 class="layers__suptitle">Tvorcheskiy Ugolok</h2>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slider item -->
+        <div class="swiper-slide slider__item">
+          <div class="slider__layer" data-swiper-parallax="35%" style="background-image: url('{% static 'main/img/Chehov/layer-back.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="25%" style="background-image: url('{% static 'main/img/Chehov/layer-middle.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="14%" style="background-image: url('{% static 'main/img/Chehov/layer-front.png' %}');"></div>
+          <div class="layer__header">
+            <a href="{% url 'story:stories' %}">
+              <h1 class="layers__title">WELCOME</h1>
+              <h2 class="layers__suptitle">Tvorcheskiy Ugolok</h2>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slider item -->
+        <div class="swiper-slide slider__item">
+          <div class="slider__layer" data-swiper-parallax="30%" style="background-image: url('{% static 'main/img/Dostoevsky/layer-back.jpg' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="15%" style="background-image: url('{% static 'main/img/Dostoevsky/layer-middle.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="10%" style="background-image: url('{% static 'main/img/Dostoevsky/layer-front.png' %}');"></div>
+          <div class="layer__header">
+            <a href="{% url 'story:stories' %}">
+              <h1 class="layers__title">WELCOME</h1>
+              <h2 class="layers__suptitle">Tvorcheskiy Ugolok</h2>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slider item -->
+        <div class="swiper-slide slider__item">
+          <div class="slider__layer" data-swiper-parallax="35%" style="background-image: url('{% static 'main/img/Gogol/layer-back.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="25%" style="background-image: url('{% static 'main/img/Gogol/layer-middle.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="14%" style="background-image: url('{% static 'main/img/Gogol/layer-front.png' %}');"></div>
+          <div class="layer__header">
+            <a href="{% url 'story:stories' %}">
+              <h1 class="layers__title">WELCOME</h1>
+              <h2 class="layers__suptitle">Tvorcheskiy Ugolok</h2>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slider item -->
+        <div class="swiper-slide slider__item">
+          <div class="slider__layer" data-swiper-parallax="15%" style="background-image: url('{% static 'main/img/Gorkiy/layer-back.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="10%" style="background-image: url('{% static 'main/img/Gorkiy/layer-middle.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="5%" style="background-image: url('{% static 'main/img/Gorkiy/layer-front.png' %}');"></div>
+          <div class="layer__header">
+            <a href="{% url 'story:stories' %}">
+              <h1 class="layers__title">WELCOME</h1>
+              <h2 class="layers__suptitle">Tvorcheskiy Ugolok</h2>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slider item -->
+        <div class="swiper-slide slider__item">
+          <div class="slider__layer" data-swiper-parallax="15%" style="background-image: url('{% static 'main/img/More/layer-back.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="10%" style="background-image: url('{% static 'main/img/More/layer-middle.png' %}');"></div>
+          <div class="slider__layer" data-swiper-parallax="5%" style="background-image: url('{% static 'main/img/More/layer-front.png' %}');"></div>
+          <a href="{% url 'story:stories' %}">
+            <div class="layer__header">
+              <h1 class="layers__title">STORY ABOUT</h1>
+              <h2 class="layers__suptitle">More...</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

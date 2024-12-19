@@ -1,0 +1,42 @@
+{% extends 'story/layout.html' %}
+
+{% block content %}
+  <div class="back__layer">
+    <!-- Errors notifications -->
+    {% if form.errors %}
+      <div class="error-messages">
+        <ul>
+          {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+              <li>
+                <strong>{{ field|capfirst }}</strong>: {{ error }}
+              </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+     <!-- Create story form -->
+    <div class="container__form d-flex justify-content-center align-items-center">
+      <div class="div__form">
+        <h2>Add new story</h2>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="my-3 d-flex align-items-center">
+            <h3 class="my-0">Title</h3>
+            <div class="px-3">{{ form.title }}</div>
+          </div>
+          <div class="my-3 d-flex align-items-center">
+            <h3 class="my-0">Author</h3>
+            <div class="px-3">{{ form.author }}</div>
+          </div>
+          <div class="my-3 d-flex align-items-center">
+            <h3 class="my-0 draft__title">Book Cover</h3>
+            <div class="px-3">{{ form.background_image }}</div>
+          </div>
+          <button type="submit" class="btn btn-outline-warning">Create Story</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

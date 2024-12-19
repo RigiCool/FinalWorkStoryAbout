@@ -1,0 +1,46 @@
+{% extends 'story/layout.html' %}
+
+{% block content %}
+<div class="prof back__layer">
+  <aside class="control_menu">
+    <div class="text-start">
+      <h2 class="my-5">{{ request.user.username }}'s Profile</h2>
+      <p>Email: {{ email }}</p>
+      <p>First Name: {{ first_name }}</p>
+      <p>Last Name: {{ last_name }}</p>
+      <h3 class="my-5">Stories You've Read:</h3>
+          {% for progress in user_progress %}
+          <p>
+            <span>{{ progress.story.title }}</span>
+            <span class="checkmark">✔</span>
+          </p>
+          {% empty %}
+              <p>No stories read yet.</p>
+          {% endfor %}
+    </div>
+    <div class="text-start">
+      <a class="btn btn-outline-dark"  href="{% url 'userprofile:edit' %}">Edit...</a>
+      <a class="btn btn-outline-danger" href="{% url 'userprofile:delete' %}">Delete...</a>
+    </div>
+  </aside>
+  <div class="p-5">
+    <h2 >In literature, as in life, it is worth remembering </h2>
+    <h2 class="vertical__title" style="font-size: 60px;">one rule:</h2>
+    <h2>a person will repent a thousand times for having said a lot, but never for having said little.</h2>
+  </div>
+</div>
+
+<!-- Additional styles -->
+<style media="screen">
+  h2:hover{
+    color: #ff9a00
+  }
+  h3{
+    width: auto;
+  }
+  p:hover{
+    color: #ff9a00
+  }
+</style>
+
+{% endblock %}

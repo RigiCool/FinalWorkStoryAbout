@@ -1,0 +1,58 @@
+{% extends 'story/layout.html' %}
+
+{% block content %}
+<div class="prof back__layer">
+  {% if form.errors %}
+  <div class="error-messages">
+      <ul>
+          {% for field, errors in form.errors.items %}
+              {% for error in errors %}
+                  <li><strong>{{ field|capfirst }}</strong>: {{ error }}</li>
+              {% endfor %}
+          {% endfor %}
+      </ul>
+  </div>
+  {% endif %}
+    <div class="container__form d-flex justify-content-center align-items-center">
+        <div class="div__form">
+            <h2>Edit Profile</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="my-3 d-flex align-items-center flex-column">
+                  <h3 class="my-0">Username</h3>
+                  <div class="px-3">
+                    {{ form.username }}
+                  </div>
+                </div>
+                <div class="my-3 d-flex align-items-center flex-column">
+                  <h3 class="my-0">First Name</h3>
+                  <div class="px-3">
+                    {{ form.first_name }}
+                  </div>
+                </div>
+                <div class="my-3 d-flex align-items-center flex-column">
+                  <h3 class="my-0">Last Name</h3>
+                  <div class="px-3">
+                    {{ form.last_name }}
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-outline-warning">Edit</button>
+            </form>
+        </div>
+      </div>
+</div>
+
+<!-- Additional styles -->
+<style media="screen">
+  h2:hover{
+    color: #ff9a00
+  }
+  h3{
+    width: auto;
+  }
+  p:hover{
+    color: #ff9a00
+  }
+</style>
+
+{% endblock %}

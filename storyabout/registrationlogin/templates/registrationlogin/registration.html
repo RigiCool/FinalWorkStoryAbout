@@ -1,0 +1,55 @@
+{% extends 'story/layout.html' %}
+
+{% block content %}
+  <div class="back__layer">
+     <!-- Errors notifications -->
+    {% if form.errors %}
+      <div class="error-messages">
+        <ul>
+          {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+              <li>
+                <strong>{{ field|capfirst }}</strong>: {{ error }}
+              </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+     <!-- Registration form -->
+    <div class="container__form d-flex justify-content-center align-items-center">
+      <div class="div__form">
+        <h2>Registration</h2>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="my-3 d-flex align-items-center flex-column">
+            <h3 class="my-0">Username</h3>
+            <div class="px-3">{{ form.username }}</div>
+          </div>
+          <div class="my-3 d-flex align-items-center flex-column">
+            <h3 class="my-0">Email</h3>
+            <div class="px-3">{{ form.email }}</div>
+          </div>
+          <div class="my-3 d-flex align-items-center flex-column">
+            <h3 class="my-0">First Name</h3>
+            <div class="px-3">{{ form.first_name }}</div>
+          </div>
+          <div class="my-3 d-flex align-items-center flex-column">
+            <h3 class="my-0">Last Name</h3>
+            <div class="px-3">{{ form.last_name }}</div>
+          </div>
+          <div class="my-3 d-flex align-items-center flex-column">
+            <h3 class="my-0">Password</h3>
+            <div class="px-3">{{ form.password1 }}</div>
+          </div>
+          <div class="my-3 d-flex align-items-center flex-column">
+            <h3 class="my-0">Confirm Password</h3>
+            <div class="px-3">{{ form.password2 }}</div>
+          </div>
+          <button type="submit" class="btn btn-outline-warning">Register</button>
+          <a type="submit" href="{% url 'registrationlogin:login' %}" class="btn btn-outline-danger text-danger">Login</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
